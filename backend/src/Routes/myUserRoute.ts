@@ -1,7 +1,7 @@
 import express from "express";
 import MyUserController from "../controllers/myUserController";
 import { jwtCheck, jwtParse } from "../middleware/auth";
-// import { validateMyUserRequest } from "../middleware/validation";
+import { validateMyUserRequest } from "../middleware/validation";
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.put(
   "/",
   jwtCheck,
   jwtParse,
-//   validateMyUserRequest,
+  validateMyUserRequest,
   MyUserController.updateCurrentUser
 );
 
